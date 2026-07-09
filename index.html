@@ -13,13 +13,14 @@
     <div id="scroll-progress-bar"></div>
 
     <div id="site-preloader">
+        <div class="preloader-bg-grid"></div>
+        <div class="preloader-glow"></div>
         <div class="preloader-inner">
-            <svg class="preloader-ring" viewBox="0 0 120 120">
-                <circle class="preloader-ring-bg" cx="60" cy="60" r="54"></circle>
-                <circle class="preloader-ring-progress" cx="60" cy="60" r="54"></circle>
-            </svg>
+            <div class="preloader-percent-big"><span id="preloader-percent-value">0</span><span class="preloader-percent-sign">%</span></div>
+            <div class="preloader-progress-track">
+                <div class="preloader-progress-fill" id="preloader-progress-fill"></div>
+            </div>
             <div class="preloader-logo">dixize<span>.store</span></div>
-            <div class="preloader-percent"><span id="preloader-percent-value">0</span>%</div>
         </div>
     </div>
 
@@ -122,16 +123,33 @@
 
     <section id="portfolio" class="portfolio-section scroll-reveal">
         <div class="section-container">
-            <div class="section-meta-split">
-                <div>
-                    <span class="meta-tag">КЕЙСЫ</span>
-                    <h2 class="section-title">Мои последние работы</h2>
+            <div class="portfolio-teaser text-center">
+                <span class="meta-tag">КЕЙСЫ</span>
+                <h2 class="section-title">Мои последние работы</h2>
+                <p class="portfolio-teaser-text">Лендинги, корпоративные сайты и интернет-магазины — каждый проект с уникальным визуалом и продуманной анимацией.</p>
+                <div class="portfolio-preview-strip">
+                    <div class="preview-chip visual-forest"></div>
+                    <div class="preview-chip visual-random"></div>
+                    <div class="preview-chip visual-office"></div>
+                    <div class="preview-chip visual-store"></div>
                 </div>
-                <div class="filter-controls">
-                    <button class="filter-btn active" data-filter="all">Все проекты</button>
-                    <button class="filter-btn" data-filter="web">Веб-сайты</button>
-                    <button class="filter-btn" data-filter="store">Магазины</button>
-                </div>
+                <button id="open-portfolio-modal" class="action-btn btn-prime">Примеры работ <span>→</span></button>
+            </div>
+        </div>
+    </section>
+
+    <div id="portfolio-modal" class="portfolio-modal hidden">
+        <div class="portfolio-modal-backdrop"></div>
+        <div class="portfolio-modal-panel">
+            <div class="portfolio-modal-head">
+                <h2 class="section-title">Мои последние работы</h2>
+                <button id="close-portfolio-modal" class="modal-close-btn" aria-label="Закрыть">✕</button>
+            </div>
+
+            <div class="filter-controls">
+                <button class="filter-btn active" data-filter="all">Все проекты</button>
+                <button class="filter-btn" data-filter="web">Веб-сайты</button>
+                <button class="filter-btn" data-filter="store">Магазины</button>
             </div>
 
             <div class="portfolio-showcase-grid">
@@ -184,7 +202,7 @@
                 <button id="portfolio-show-all" class="action-btn btn-glass hidden">Показать все проекты <span class="show-all-count"></span></button>
             </div>
         </div>
-    </section>
+    </div>
 
     <section id="contact" class="contact-section scroll-reveal">
         <div class="section-container">
@@ -197,28 +215,28 @@
                         <p class="form-sub">Выберите тип проекта, укажите опции и мгновенно отправьте спецификацию разработчику.</p>
                     </div>
 
-                    <div class="config-group">
+                    <div class="config-group scroll-reveal">
                         <label class="group-label">1. Тип архитектуры проекта</label>
                         <div class="config-selector-grid">
                             <div class="selector-tile active" data-type="landing">
                                 <h4>Лендинг / Промо</h4>
                                 <p>Одностраничный сайт для яркой презентации продукта.</p>
-                                <span class="tile-example-link">Пример структуры</span>
+                                <a href="https://dixize.github.io/foressttt/" target="_blank" rel="noopener" class="tile-example-link">Пример структуры</a>
                             </div>
                             <div class="selector-tile" data-type="service">
                                 <h4>Сайт услуг</h4>
                                 <p>Многостраничная платформа для бизнеса и услуг.</p>
-                                <span class="tile-example-link">Пример структуры</span>
+                                <a href="https://dixize.github.io/asdwqe/" target="_blank" rel="noopener" class="tile-example-link">Пример структуры</a>
                             </div>
                             <div class="selector-tile" data-type="store">
                                 <h4>Интернет-магазин</h4>
                                 <p>Сложная система с корзиной и встроенными модулями.</p>
-                                <span class="tile-example-link">Пример структуры</span>
+                                <a href="https://dixize.github.io/dixize_store_web/" target="_blank" rel="noopener" class="tile-example-link">Пример структуры</a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="config-group">
+                    <div class="config-group scroll-reveal">
                         <label class="group-label">2. Дополнительные модули</label>
                         <div class="addons-flex">
                             <label class="addon-checkbox-label">
@@ -240,7 +258,7 @@
                         </div>
                     </div>
 
-                    <div class="config-group">
+                    <div class="config-group scroll-reveal">
                         <label class="group-label">3. Контактные данные и детали</label>
                         <div class="form-row-split">
                             <div class="input-wrapper">
@@ -280,8 +298,6 @@
             </div>
         </div>
     </section>
-
-    <a href="#contact" class="mobile-sticky-cta">Рассчитать стоимость сайта</a>
 
     <button id="back-to-top" class="back-to-top" aria-label="Наверх">↑</button>
 
