@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dixize Store — Разработка Сайтов</title>
+    <meta name="description" content="Dixize Store — разработка адаптивных сайтов, лендингов и интернет-магазинов с интеграцией Telegram и премиальной анимацией.">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="site-preloader">
+        <div class="preloader-logo">dixize<span>.store</span></div>
+        <div class="preloader-line"></div>
+    </div>
+
+    <div class="custom-cursor-dot"></div>
+
+    <div class="glow-ambience">
+        <div class="glow-sphere"></div>
+    </div>
+
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="#" class="brand-logo">dixize<span>.store</span></a>
+            <ul class="nav-list">
+                <li><a href="#advantages" class="nav-link-item">Преимущества</a></li>
+                <li><a href="#about" class="nav-link-item">Обо мне</a></li>
+                <li><a href="#portfolio" class="nav-link-item">Портфолио</a></li>
+                <li><a href="#contact" class="nav-link-item">Заказать</a></li>
+            </ul>
+            <button id="burger-toggle" class="burger-toggle" aria-label="Меню" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <nav id="mobile-nav-overlay" class="mobile-nav-overlay">
+        <ul class="mobile-nav-list">
+            <li><a href="#advantages" class="mobile-nav-link">Преимущества</a></li>
+            <li><a href="#about" class="mobile-nav-link">Обо мне</a></li>
+            <li><a href="#portfolio" class="mobile-nav-link">Портфолио</a></li>
+            <li><a href="#contact" class="mobile-nav-link">Заказать</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero-section text-center scroll-reveal">
+        <h1 class="main-headline gradient-text">Создание премиальных интерфейсов и веб-приложений</h1>
+        <p class="hero-lead-text">Разрабатываю адаптивные, быстрые и современные сайты с глубокой интеграцией автоматизации и интерактивных элементов.</p>
+        <div class="hero-button-group">
+            <a href="#contact" class="action-btn btn-prime">Рассчитать стоимость</a>
+            <a href="#portfolio" class="action-btn btn-glass">Смотреть работы</a>
+        </div>
+    </section>
+
+    <section id="advantages" class="advantages-section scroll-reveal">
+        <div class="section-container">
+            <div class="advantages-head text-center">
+                <span class="meta-tag">ПОЧЕМУ Я</span>
+                <h2 class="section-title">Три главных плюса</h2>
+            </div>
+            <div class="advantages-grid">
+                <div class="advantage-card scroll-reveal">
+                    <div class="adv-icon">⚡</div>
+                    <h3>Высокая скорость</h3>
+                    <p>Оптимизированный чистый код без тяжелых библиотек. Молниеносная загрузка на любых устройствах.</p>
+                </div>
+                <div class="advantage-card scroll-reveal">
+                    <div class="adv-icon">📱</div>
+                    <h3>Адаптивность</h3>
+                    <p>Идеальное отображение как на огромных 4K мониторах, так и на экранах старых смартфонов.</p>
+                </div>
+                <div class="advantage-card scroll-reveal">
+                    <div class="adv-icon">🤖</div>
+                    <h3>Автоматизация</h3>
+                    <p>Прямая интеграция с Telegram API. Получайте уведомления и ТЗ от клиентов мгновенно прямо в мессенджер.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section scroll-reveal">
+        <div class="section-container">
+            <div class="layout-about-grid">
+                <div class="about-visual-panel">
+                    <div class="tech-stack-cloud animate-float">
+                        <span class="stack-badge">HTML5</span>
+                        <span class="stack-badge">CSS3</span>
+                        <span class="stack-badge">JavaScript</span>
+                        <span class="stack-badge">Telegram API</span>
+                        <span class="stack-badge">UI / UX Animation</span>
+                        <span class="stack-badge">Git / GitHub</span>
+                    </div>
+                </div>
+                <div class="about-info-panel">
+                    <span class="meta-tag">ПОРТРЕТ РАЗРАБОТЧИКА</span>
+                    <h2 class="section-title">Создаю проекты, которые работают на вас</h2>
+                    <p class="about-bio-p">Я занимаюсь веб-разработкой и созданием интерактивных сайтов. В каждый проект закладываю кастомную анимацию, плавные переходы и продуманную логику. Использую современные возможности ванильного JavaScript в связке с Telegram API для реализации задач любой сложности — от лендингов и корпоративных сайтов до интернет-магазинов.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio-section scroll-reveal">
+        <div class="section-container">
+            <div class="section-meta-split">
+                <div>
+                    <span class="meta-tag">КЕЙСЫ</span>
+                    <h2 class="section-title">Мои последние работы</h2>
+                </div>
+                <div class="filter-controls">
+                    <button class="filter-btn active" data-filter="all">Все проекты</button>
+                    <button class="filter-btn" data-filter="web">Веб-сайты</button>
+                    <button class="filter-btn" data-filter="store">Магазины</button>
+                </div>
+            </div>
+
+            <div class="portfolio-showcase-grid">
+                <div class="portfolio-item-card scroll-reveal" data-category="web">
+                    <div class="card-visual visual-forest">
+                        <span class="tech-tag">UI / Conservation</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-project-title">Save Forest</h3>
+                        <p class="card-project-text">Интерактивный сайт, посвященный защите лесов и охране дикой природы. Каталог флоры и фауны, привлекает внимание к экологии через плавный визуал.</p>
+                        <a href="https://dixize.github.io/foressttt/" target="_blank" rel="noopener" class="card-hyperlink">Смотреть проект <span>→</span></a>
+                    </div>
+                </div>
+
+                <div class="portfolio-item-card scroll-reveal" data-category="web">
+                    <div class="card-visual visual-random">
+                        <span class="tech-tag">HTML / CSS / JS</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-project-title">Neon Gen</h3>
+                        <p class="card-project-text">Футуристичный генератор случайных чисел и списков с неоновым интерфейсом. Гибкая настройка диапазона и мгновенная генерация результата.</p>
+                        <a href="https://dixize.github.io/randomizer/" target="_blank" rel="noopener" class="card-hyperlink">Смотреть проект <span>→</span></a>
+                    </div>
+                </div>
+
+                <div class="portfolio-item-card scroll-reveal" data-category="web">
+                    <div class="card-visual visual-office">
+                        <span class="tech-tag">Corporate / Business</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-project-title">Проектный офис</h3>
+                        <p class="card-project-text">Корпоративный сайт-презентация для промышленной экосистемы: автоматизация, видеоаналитика и промышленный IoT в едином стильном интерфейсе.</p>
+                        <a href="https://dixize.github.io/asdwqe/" target="_blank" rel="noopener" class="card-hyperlink">Смотреть проект <span>→</span></a>
+                    </div>
+                </div>
+
+                <div class="portfolio-item-card scroll-reveal" data-category="store">
+                    <div class="card-visual visual-store">
+                        <span class="tech-tag">E-commerce</span>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-project-title">Ultra Tech</h3>
+                        <p class="card-project-text">Интернет-магазин премиальной техники с каталогом товаров, корзиной и продуманным пользовательским путём от выбора до покупки.</p>
+                        <a href="https://dixize.github.io/dixize_store_web/" target="_blank" rel="noopener" class="card-hyperlink">Смотреть проект <span>→</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section scroll-reveal">
+        <div class="section-container">
+            <div class="form-container-box">
+                
+                <form id="portfolio-interactive-form">
+                    <div class="form-head text-center">
+                        <span class="meta-tag">ИНТЕРАКТИВНЫЙ ОПТИМИЗАТОР</span>
+                        <h2 class="section-title">Сконфигурируйте ваше ТЗ</h2>
+                        <p class="form-sub">Выберите тип проекта, укажите опции и мгновенно отправьте спецификацию разработчику.</p>
+                    </div>
+
+                    <div class="config-group">
+                        <label class="group-label">1. Тип архитектуры проекта</label>
+                        <div class="config-selector-grid">
+                            <div class="selector-tile active" data-type="landing">
+                                <h4>Лендинг / Промо</h4>
+                                <p>Одностраничный сайт для яркой презентации продукта.</p>
+                                <span class="tile-example-link">Пример структуры</span>
+                            </div>
+                            <div class="selector-tile" data-type="service">
+                                <h4>Сайт услуг</h4>
+                                <p>Многостраничная платформа для бизнеса и услуг.</p>
+                                <span class="tile-example-link">Пример структуры</span>
+                            </div>
+                            <div class="selector-tile" data-type="store">
+                                <h4>Интернет-магазин</h4>
+                                <p>Сложная система с корзиной и встроенными модулями.</p>
+                                <span class="tile-example-link">Пример структуры</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="config-group">
+                        <label class="group-label">2. Дополнительные модули</label>
+                        <div class="addons-flex">
+                            <label class="addon-checkbox-label">
+                                <input type="checkbox" id="addon-tg">
+                                <span class="custom-checkbox"></span>
+                                <div>
+                                    <strong>Интеграция Telegram API</strong>
+                                    <p id="tg-addon-price-text" style="font-size: 11px; color: var(--text-muted); margin: 0;">+200 ₽</p>
+                                </div>
+                            </label>
+                            <label class="addon-checkbox-label">
+                                <input type="checkbox" id="addon-anim">
+                                <span class="custom-checkbox"></span>
+                                <div>
+                                    <strong>Премиальные UI-анимации</strong>
+                                    <p id="anim-addon-price-text" style="font-size: 11px; color: var(--text-muted); margin: 0;">+150 ₽</p>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="config-group">
+                        <label class="group-label">3. Контактные данные и детали</label>
+                        <div class="form-row-split">
+                            <div class="input-wrapper">
+                                <label for="client_name">Ваше имя *</label>
+                                <input type="text" id="client_name" placeholder="Иван Иванов">
+                                <span class="custom-error-label"></span>
+                            </div>
+                            <div class="input-wrapper">
+                                <label for="client_contact">Способ связи (Telegram / Телефон) *</label>
+                                <input type="text" id="client_contact" placeholder="@username или +7...">
+                                <span class="custom-error-label"></span>
+                            </div>
+                        </div>
+                        <div class="input-wrapper">
+                            <label for="client_task">Дополнительные пожелания к ТЗ (необязательно)</label>
+                            <textarea id="client_task" rows="4" placeholder="Например: темная тема, интеграция интерактивной карты, галерея работ..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="price-counter-panel">
+                        <span class="counter-label">Предварительный расчет стоимости:</span>
+                        <div class="counter-value"><span id="live-price-display">750</span> ₽</div>
+                    </div>
+
+                    <button type="submit" id="form-submit-trigger" class="action-btn btn-prime btn-wide">
+                        <span class="btn-text">Утвердить и отправить спецификацию в Telegram</span>
+                        <div class="spinner hidden"></div>
+                    </button>
+                </form>
+
+                <div id="form-success-state" class="success-state-ui hidden">
+                    <div class="success-radial-icon">✓</div>
+                    <h2 class="section-title">ТЗ успешно сформировано!</h2>
+                    <p class="form-sub" style="margin-top: 12px; font-size: 16px;">Спецификация отправлена разработчику в Telegram. Я свяжусь с вами в ближайшее время для подтверждения деталей.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <a href="#contact" class="mobile-sticky-cta">Рассчитать стоимость сайта</a>
+
+    <footer class="site-footer">
+        <div class="nav-container footer-wrap">
+            <p>© 2026 dixize.store. Все права защищены.</p>
+            <div class="footer-socials">
+                <a href="https://github.com/Dixize" target="_blank" rel="noopener" class="social-link">GitHub</a>
+                <a href="#" class="social-link">Telegram</a>
+                <a href="#" class="social-link">ВКонтакте</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
