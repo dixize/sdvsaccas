@@ -6,11 +6,72 @@ document.addEventListener("DOMContentLoaded", () => {
     const preloader = document.getElementById("site-preloader");
     if (preloader) {
         const hidePreloader = () => preloader.classList.add("preloader-hide");
-        // Небольшая пауза, чтобы анимация логотипа успела доиграть
-        window.setTimeout(hidePreloader, 1100);
+
+        // Анимация счетчика процентов, синхронизирована с отрисовкой кольца
+        const percentEl = document.getElementById("preloader-percent-value");
+        if (percentEl && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            const duration = 1250;
+            const start = performance.now();
+            const tickPercent = (now) => {
+                const progress = Math.min(1, (now - start) / duration);
+                percentEl.textContent = Math.round(progress * 100);
+                if (progress < 1) requestAnimationFrame(tickPercent);
+            };
+            requestAnimationFrame(tickPercent);
+        } else if (percentEl) {
+            percentEl.textContent = "100";
+        }
+
+        // Небольшая пауза, чтобы анимация логотипа/кольца успела доиграть
+        window.setTimeout(hidePreloader, 1500);
         // Подстраховка: если что-то пойдёт не так, прелоадер не залипнет навсегда
         window.setTimeout(hidePreloader, 3000);
     }
+
+    // ==========================================
+    // 0.5 ИНДИКАТОР ПРОГРЕССА СКРОЛЛА
+    // ==========================================
+    const progressBar = document.getElementById("scroll-progress-bar");
+    if (progressBar) {
+        const updateProgressBar = () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            progressBar.style.width = `${progress}%`;
+        };
+        window.addEventListener("scroll", updateProgressBar, { passive: true });
+        updateProgressBar();
+    }
+
+    // ==========================================
+    // 0.6 КНОПКА "НАВЕРХ"
+    // ==========================================
+    const backToTopBtn = document.getElementById("back-to-top");
+    if (backToTopBtn) {
+        window.addEventListener("scroll", () => {
+            backToTopBtn.classList.toggle("visible", window.scrollY > 500);
+        }, { passive: true });
+        backToTopBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    }
+
+    // ==========================================
+    // 0.7 RIPPLE-ЭФФЕКТ НА КНОПКАХ
+    // ==========================================
+    document.querySelectorAll(".action-btn").forEach(btn => {
+        btn.addEventListener("click", (e) => {
+            const rect = btn.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height) * 1.4;
+            const ripple = document.createElement("span");
+            ripple.className = "ripple-el";
+            ripple.style.width = ripple.style.height = `${size}px`;
+            ripple.style.left = `${e.clientX - rect.left - size / 2}px`;
+            ripple.style.top = `${e.clientY - rect.top - size / 2}px`;
+            btn.appendChild(ripple);
+            ripple.addEventListener("animationend", () => ripple.remove());
+        });
+    });
 
     // ==========================================
     // 1. МИНИМАЛИСТИЧНЫЙ КУРСОР-ТОЧКА
@@ -96,6 +157,55 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     });
+
+    // ==========================================
+    // 3.1 МАГНИТНЫЙ 3D-НАКЛОН КАРТОЧЕК ПОРТФОЛИО
+    // ==========================================
+    if (window.innerWidth > 900 && !window.matchMedia("(pointer: coarse)").matches) {
+        portfolioCards.forEach(card => {
+            card.addEventListener("mousemove", (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width - 0.5;
+                const y = (e.clientY - rect.top) / rect.height - 0.5;
+                card.style.setProperty("--tiltX", `${(-y * 8).toFixed(2)}deg`);
+                card.style.setProperty("--tiltY", `${(x * 8).toFixed(2)}deg`);
+            });
+            card.addEventListener("mouseleave", () => {
+                card.style.setProperty("--tiltX", "0deg");
+                card.style.setProperty("--tiltY", "0deg");
+            });
+        });
+    }
+
+    // ==========================================
+    // 3.2 "ПОКАЗАТЬ ВСЕ ПРОЕКТЫ" (для будущих кейсов портфолио)
+    // ==========================================
+    const showAllBtn = document.getElementById("portfolio-show-all");
+    const VISIBLE_BY_DEFAULT = 4;
+
+    if (showAllBtn) {
+        const cardsArray = Array.from(portfolioCards);
+        const extraCards = cardsArray.slice(VISIBLE_BY_DEFAULT);
+
+        if (extraCards.length > 0) {
+            extraCards.forEach(card => card.classList.add("portfolio-extra-hidden"));
+            showAllBtn.classList.remove("hidden");
+            const countLabel = showAllBtn.querySelector(".show-all-count");
+            if (countLabel) countLabel.textContent = `(+${extraCards.length})`;
+
+            showAllBtn.addEventListener("click", () => {
+                extraCards.forEach((card, i) => {
+                    card.classList.remove("portfolio-extra-hidden");
+                    card.classList.add("js-prep");
+                    // Плавное каскадное появление новых карточек
+                    requestAnimationFrame(() => {
+                        setTimeout(() => card.classList.add("scroll-reveal-active"), i * 80);
+                    });
+                });
+                showAllBtn.classList.add("hidden");
+            });
+        }
+    }
 
     // ==========================================
     // 4. ДИНАМИЧЕСКИЙ КАЛЬКУЛЯТОР ЦЕН
