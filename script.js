@@ -7,19 +7,23 @@ document.addEventListener("DOMContentLoaded", () => {
     if (preloader) {
         const hidePreloader = () => preloader.classList.add("preloader-hide");
 
-        // Анимация счетчика процентов, синхронизирована с отрисовкой кольца
+        // Анимация счетчика процентов и прогресс-бара, синхронизированы между собой
         const percentEl = document.getElementById("preloader-percent-value");
+        const progressFill = document.getElementById("preloader-progress-fill");
         if (percentEl && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-            const duration = 1250;
+            const duration = 1350;
             const start = performance.now();
             const tickPercent = (now) => {
                 const progress = Math.min(1, (now - start) / duration);
-                percentEl.textContent = Math.round(progress * 100);
+                const value = Math.round(progress * 100);
+                percentEl.textContent = value;
+                if (progressFill) progressFill.style.width = `${value}%`;
                 if (progress < 1) requestAnimationFrame(tickPercent);
             };
             requestAnimationFrame(tickPercent);
         } else if (percentEl) {
             percentEl.textContent = "100";
+            if (progressFill) progressFill.style.width = "100%";
         }
 
         // Небольшая пауза, чтобы анимация логотипа/кольца успела доиграть
@@ -134,6 +138,47 @@ document.addEventListener("DOMContentLoaded", () => {
     }, { threshold: 0.05 });
     
     revealTargets.forEach(target => revealObserver.observe(target));
+
+    // ==========================================
+    // 3.0 МОДАЛЬНОЕ ОКНО "ПРИМЕРЫ РАБОТ"
+    // ==========================================
+    const openModalBtn = document.getElementById("open-portfolio-modal");
+    const closeModalBtn = document.getElementById("close-portfolio-modal");
+    const portfolioModal = document.getElementById("portfolio-modal");
+    const modalBackdrop = portfolioModal ? portfolioModal.querySelector(".portfolio-modal-backdrop") : null;
+
+    let modalCardsRevealed = false;
+
+    const revealModalCards = () => {
+        if (modalCardsRevealed || !portfolioModal) return;
+        modalCardsRevealed = true;
+        const cardsToReveal = portfolioModal.querySelectorAll(".portfolio-item-card:not(.portfolio-extra-hidden)");
+        cardsToReveal.forEach((card, i) => {
+            setTimeout(() => card.classList.add("scroll-reveal-active"), i * 70);
+        });
+    };
+
+    const openPortfolioModal = () => {
+        if (!portfolioModal) return;
+        portfolioModal.classList.remove("hidden");
+        document.body.classList.add("modal-open");
+        revealModalCards();
+    };
+
+    const closePortfolioModal = () => {
+        if (!portfolioModal) return;
+        portfolioModal.classList.add("hidden");
+        document.body.classList.remove("modal-open");
+    };
+
+    if (openModalBtn) openModalBtn.addEventListener("click", openPortfolioModal);
+    if (closeModalBtn) closeModalBtn.addEventListener("click", closePortfolioModal);
+    if (modalBackdrop) modalBackdrop.addEventListener("click", closePortfolioModal);
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && portfolioModal && !portfolioModal.classList.contains("hidden")) {
+            closePortfolioModal();
+        }
+    });
 
     // ==========================================
     // 3. ФИЛЬТРАЦИЯ КЕЙСОВ ПОРТФОЛИО
