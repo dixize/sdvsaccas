@@ -10,15 +10,25 @@
 </head>
 <body>
 
+    <div id="scroll-progress-bar"></div>
+
     <div id="site-preloader">
-        <div class="preloader-logo">dixize<span>.store</span></div>
-        <div class="preloader-line"></div>
+        <div class="preloader-inner">
+            <svg class="preloader-ring" viewBox="0 0 120 120">
+                <circle class="preloader-ring-bg" cx="60" cy="60" r="54"></circle>
+                <circle class="preloader-ring-progress" cx="60" cy="60" r="54"></circle>
+            </svg>
+            <div class="preloader-logo">dixize<span>.store</span></div>
+            <div class="preloader-percent"><span id="preloader-percent-value">0</span>%</div>
+        </div>
     </div>
 
     <div class="custom-cursor-dot"></div>
 
     <div class="glow-ambience">
-        <div class="glow-sphere"></div>
+        <div class="glow-sphere glow-sphere-1"></div>
+        <div class="glow-sphere glow-sphere-2"></div>
+        <div class="glow-sphere glow-sphere-3"></div>
     </div>
 
     <header class="site-header">
@@ -84,13 +94,21 @@
         <div class="section-container">
             <div class="layout-about-grid">
                 <div class="about-visual-panel">
-                    <div class="tech-stack-cloud animate-float">
-                        <span class="stack-badge">HTML5</span>
-                        <span class="stack-badge">CSS3</span>
-                        <span class="stack-badge">JavaScript</span>
-                        <span class="stack-badge">Telegram API</span>
-                        <span class="stack-badge">UI / UX Animation</span>
-                        <span class="stack-badge">Git / GitHub</span>
+                    <div class="tech-stack-marquee">
+                        <div class="tech-stack-track">
+                            <span class="stack-badge">HTML5</span>
+                            <span class="stack-badge">CSS3</span>
+                            <span class="stack-badge">JavaScript</span>
+                            <span class="stack-badge">Telegram API</span>
+                            <span class="stack-badge">UI / UX Animation</span>
+                            <span class="stack-badge">Git / GitHub</span>
+                            <span class="stack-badge" aria-hidden="true">HTML5</span>
+                            <span class="stack-badge" aria-hidden="true">CSS3</span>
+                            <span class="stack-badge" aria-hidden="true">JavaScript</span>
+                            <span class="stack-badge" aria-hidden="true">Telegram API</span>
+                            <span class="stack-badge" aria-hidden="true">UI / UX Animation</span>
+                            <span class="stack-badge" aria-hidden="true">Git / GitHub</span>
+                        </div>
                     </div>
                 </div>
                 <div class="about-info-panel">
@@ -160,6 +178,10 @@
                         <a href="https://dixize.github.io/dixize_store_web/" target="_blank" rel="noopener" class="card-hyperlink">Смотреть проект <span>→</span></a>
                     </div>
                 </div>
+            </div>
+
+            <div class="portfolio-more-wrap">
+                <button id="portfolio-show-all" class="action-btn btn-glass hidden">Показать все проекты <span class="show-all-count"></span></button>
             </div>
         </div>
     </section>
@@ -260,6 +282,8 @@
     </section>
 
     <a href="#contact" class="mobile-sticky-cta">Рассчитать стоимость сайта</a>
+
+    <button id="back-to-top" class="back-to-top" aria-label="Наверх">↑</button>
 
     <footer class="site-footer">
         <div class="nav-container footer-wrap">
