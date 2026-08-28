@@ -289,28 +289,28 @@ document.addEventListener("DOMContentLoaded", () => {
     if (checkAnim) checkAnim.addEventListener("change", calculateTotal);
 
     function calculateTotal() {
-        let basePrice = 750;
+        let basePrice = 2000;
         
         if (currentType === "landing") {
-            basePrice = 750;
-            if (tgText) tgText.textContent = "+200 ₽";
-            if (animText) animText.textContent = "+150 ₽";
+            basePrice = 2000;
+            if (tgText) tgText.textContent = "+500 ₽";
+            if (animText) animText.textContent = "+0 ₽";
             if (checkTg) checkTg.disabled = false;
             if (checkAnim) checkAnim.disabled = false;
             if (checkTg && checkTg.checked) basePrice += 200;
             if (checkAnim && checkAnim.checked) basePrice += 150;
 
         } else if (currentType === "store") {
-            basePrice = 1250;
+            basePrice = 3200;
             if (tgText) tgText.textContent = "Включено";
             if (animText) animText.textContent = "Включено";
             if (checkTg) { checkTg.checked = true; checkTg.disabled = true; }
             if (checkAnim) { checkAnim.checked = true; checkAnim.disabled = true; }
 
         } else if (currentType === "service") {
-            basePrice = 800;
-            if (tgText) tgText.textContent = "+200 ₽";
-            if (animText) animText.textContent = "+100 ₽";
+            basePrice = 2400;
+            if (tgText) tgText.textContent = "+500₽";
+            if (animText) animText.textContent = "+0 ₽";
             if (checkTg) checkTg.disabled = false;
             if (checkAnim) checkAnim.disabled = false;
             if (checkTg && checkTg.checked) basePrice += 200;
