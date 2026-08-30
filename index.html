@@ -3,12 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dixize Store — Разработка Сайтов</title>
-    <meta name="description" content="Dixize Store — разработка адаптивных сайтов, лендингов и интернет-магазинов с интеграцией Telegram и премиальной анимацией.">
+    <title>dixize.store — Разработка сайтов и веб-интерфейсов</title>
+    <meta name="description" content="Разработка адаптивных сайтов, лендингов и интернет-магазинов на HTML/CSS/JS с интеграцией Telegram и продуманной анимацией.">
+    <link rel="canonical" href="https://dixize-store-web.vercel.app/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://dixize-store-web.vercel.app/">
+    <meta property="og:site_name" content="dixize.store">
+    <meta property="og:title" content="dixize.store — Разработка сайтов и веб-интерфейсов">
+    <meta property="og:description" content="Разработка адаптивных сайтов, лендингов и интернет-магазинов на HTML/CSS/JS с интеграцией Telegram и продуманной анимацией.">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:locale:alternate" content="en_US">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="dixize.store — Разработка сайтов и веб-интерфейсов">
+    <meta name="twitter:description" content="Разработка адаптивных сайтов, лендингов и интернет-магазинов на HTML/CSS/JS с интеграцией Telegram и продуманной анимацией.">
+
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='24' fill='%230a0b0f'/%3E%3Ccircle cx='50' cy='50' r='16' fill='none' stroke='%234f7cff' stroke-width='8'/%3E%3C/svg%3E">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "dixize.store",
+      "url": "https://dixize-store-web.vercel.app/",
+      "description": "Разработка адаптивных сайтов, лендингов и интернет-магазинов с интеграцией Telegram и премиальной анимацией.",
+      "sameAs": ["https://github.com/Dixize"],
+      "areaServed": "RU",
+      "serviceType": "Web development"
+    }
+    </script>
 </head>
 <body>
+
+    <a href="#main-content" class="skip-link" data-i18n="skip.content">Перейти к содержанию</a>
 
     <div id="scroll-progress-bar"></div>
 
@@ -24,9 +57,12 @@
         </div>
     </div>
 
-    <div class="custom-cursor-dot"></div>
+    <div class="custom-cursor-dot" aria-hidden="true"></div>
+    <div class="custom-cursor-ring" aria-hidden="true"></div>
 
-    <div class="glow-ambience">
+    <div class="glow-ambience" aria-hidden="true">
+        <div class="bg-grid-layer"></div>
+        <div class="bg-noise-layer"></div>
         <div class="glow-sphere glow-sphere-1"></div>
         <div class="glow-sphere glow-sphere-2"></div>
         <div class="glow-sphere glow-sphere-3"></div>
@@ -35,57 +71,90 @@
     <header class="site-header">
         <div class="nav-container">
             <a href="#" class="brand-logo">dixize<span>.store</span></a>
+
             <ul class="nav-list">
-                <li><a href="#advantages" class="nav-link-item">Преимущества</a></li>
-                <li><a href="#about" class="nav-link-item">Обо мне</a></li>
-                <li><a href="#portfolio" class="nav-link-item">Портфолио</a></li>
-                <li><a href="#contact" class="nav-link-item">Заказать</a></li>
+                <li><a href="#advantages" class="nav-link-item" data-section="advantages" data-i18n="nav.advantages">Преимущества</a></li>
+                <li><a href="#about" class="nav-link-item" data-section="about" data-i18n="nav.about">Обо мне</a></li>
+                <li><a href="#portfolio" class="nav-link-item" data-section="portfolio" data-i18n="nav.portfolio">Портфолио</a></li>
+                <li><a href="#contact" class="nav-link-item" data-section="contact" data-i18n="nav.contact">Заказать</a></li>
             </ul>
-            <button id="burger-toggle" class="burger-toggle" aria-label="Меню" aria-expanded="false">
-                <span></span><span></span><span></span>
-            </button>
+
+            <div class="nav-controls">
+                <div class="lang-switch" role="group" aria-label="Language switch">
+                    <span class="lang-switch-indicator" data-active-lang="ru" aria-hidden="true"></span>
+                    <button type="button" class="lang-switch-btn active" data-lang="ru" aria-pressed="true" data-i18n="lang.ru">RU</button>
+                    <button type="button" class="lang-switch-btn" data-lang="en" aria-pressed="false" data-i18n="lang.en">EN</button>
+                </div>
+                <button id="burger-toggle" class="burger-toggle" aria-label="Меню" data-i18n-aria="nav.menuLabel" aria-expanded="false" aria-controls="mobile-nav-overlay">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
         </div>
     </header>
 
     <nav id="mobile-nav-overlay" class="mobile-nav-overlay">
         <ul class="mobile-nav-list">
-            <li><a href="#advantages" class="mobile-nav-link">Преимущества</a></li>
-            <li><a href="#about" class="mobile-nav-link">Обо мне</a></li>
-            <li><a href="#portfolio" class="mobile-nav-link">Портфолио</a></li>
-            <li><a href="#contact" class="mobile-nav-link">Заказать</a></li>
+            <li><a href="#advantages" class="mobile-nav-link" data-i18n="nav.advantages">Преимущества</a></li>
+            <li><a href="#about" class="mobile-nav-link" data-i18n="nav.about">Обо мне</a></li>
+            <li><a href="#portfolio" class="mobile-nav-link" data-i18n="nav.portfolio">Портфолио</a></li>
+            <li><a href="#contact" class="mobile-nav-link" data-i18n="nav.contact">Заказать</a></li>
         </ul>
+        <div class="lang-switch lang-switch-mobile" role="group" aria-label="Language switch">
+            <span class="lang-switch-indicator" data-active-lang="ru" aria-hidden="true"></span>
+            <button type="button" class="lang-switch-btn active" data-lang="ru" aria-pressed="true" data-i18n="lang.ru">RU</button>
+            <button type="button" class="lang-switch-btn" data-lang="en" aria-pressed="false" data-i18n="lang.en">EN</button>
+        </div>
     </nav>
 
-    <section class="hero-section text-center scroll-reveal">
-        <h1 class="main-headline gradient-text">Создание премиальных интерфейсов и веб-приложений</h1>
-        <p class="hero-lead-text">Разрабатываю адаптивные, быстрые и современные сайты с глубокой интеграцией автоматизации и интерактивных элементов.</p>
-        <div class="hero-button-group">
-            <a href="#contact" class="action-btn btn-prime">Рассчитать стоимость</a>
-            <a href="#portfolio" class="action-btn btn-glass">Смотреть работы</a>
+    <main id="main-content">
+
+    <section class="hero-section">
+        <p class="hero-eyebrow reveal-word" data-i18n="hero.eyebrow">Веб-разработчик · HTML / CSS / JS</p>
+
+        <h1 class="main-headline">
+            <span class="headline-line reveal-line" data-i18n="hero.headline">Создаю премиальные интерфейсы и веб-приложения</span>
+        </h1>
+
+        <p class="hero-lead-text reveal-fade" data-i18n="hero.lead">Разрабатываю адаптивные, быстрые и современные сайты с глубокой интеграцией автоматизации и интерактивных элементов.</p>
+
+        <div class="hero-button-group reveal-fade">
+            <a href="#contact" class="action-btn btn-prime" data-i18n="hero.ctaPrimary">Рассчитать стоимость</a>
+            <a href="#portfolio" class="action-btn btn-glass" data-i18n="hero.ctaSecondary">Смотреть работы</a>
         </div>
+
+        <div class="hero-tags reveal-fade">
+            <span class="hero-tag"><i class="tag-dot"></i><span data-i18n="hero.tag1">Чистый ванильный код</span></span>
+            <span class="hero-tag"><i class="tag-dot"></i><span data-i18n="hero.tag2">Telegram-автоматизация</span></span>
+            <span class="hero-tag"><i class="tag-dot tag-dot-live"></i><span data-i18n="hero.tag3">Открыт к новым проектам</span></span>
+        </div>
+
+        <a href="#advantages" class="hero-scroll-indicator" aria-hidden="true">
+            <span data-i18n="hero.scroll">Листайте вниз</span>
+            <i class="scroll-line"></i>
+        </a>
     </section>
 
     <section id="advantages" class="advantages-section scroll-reveal">
         <div class="section-container">
             <div class="advantages-head text-center">
-                <span class="meta-tag">ПОЧЕМУ Я</span>
-                <h2 class="section-title">Три главных плюса</h2>
+                <span class="meta-tag" data-i18n="adv.eyebrow">ПОЧЕМУ Я</span>
+                <h2 class="section-title" data-i18n="adv.title">Три главных плюса</h2>
             </div>
             <div class="advantages-grid">
                 <div class="advantage-card scroll-reveal">
                     <div class="adv-icon">⚡</div>
-                    <h3>Высокая скорость</h3>
-                    <p>Оптимизированный чистый код без тяжелых библиотек. Молниеносная загрузка на любых устройствах.</p>
+                    <h3 data-i18n="adv.speed.title">Высокая скорость</h3>
+                    <p data-i18n="adv.speed.text">Оптимизированный чистый код без тяжелых библиотек. Молниеносная загрузка на любых устройствах.</p>
                 </div>
                 <div class="advantage-card scroll-reveal">
                     <div class="adv-icon">📱</div>
-                    <h3>Адаптивность</h3>
-                    <p>Идеальное отображение как на огромных 4K мониторах, так и на экранах старых смартфонов.</p>
+                    <h3 data-i18n="adv.responsive.title">Адаптивность</h3>
+                    <p data-i18n="adv.responsive.text">Идеальное отображение как на огромных 4K мониторах, так и на экранах старых смартфонов.</p>
                 </div>
                 <div class="advantage-card scroll-reveal">
                     <div class="adv-icon">🤖</div>
-                    <h3>Автоматизация</h3>
-                    <p>Прямая интеграция с Telegram API. Получайте уведомления и ТЗ от клиентов мгновенно прямо в мессенджер.</p>
+                    <h3 data-i18n="adv.automation.title">Автоматизация</h3>
+                    <p data-i18n="adv.automation.text">Прямая интеграция с Telegram API. Получайте уведомления и ТЗ от клиентов мгновенно прямо в мессенджер.</p>
                 </div>
             </div>
         </div>
@@ -95,6 +164,7 @@
         <div class="section-container">
             <div class="layout-about-grid">
                 <div class="about-visual-panel">
+                    <span class="about-visual-label" data-i18n="about.stackLabel">Стек, с которым я работаю</span>
                     <div class="tech-stack-marquee">
                         <div class="tech-stack-track">
                             <span class="stack-badge">HTML5</span>
@@ -113,9 +183,9 @@
                     </div>
                 </div>
                 <div class="about-info-panel">
-                    <span class="meta-tag">ПОРТРЕТ РАЗРАБОТЧИКА</span>
-                    <h2 class="section-title">Создаю проекты, которые работают на вас</h2>
-                    <p class="about-bio-p">Я занимаюсь веб-разработкой и созданием интерактивных сайтов. В каждый проект закладываю кастомную анимацию, плавные переходы и продуманную логику. Использую современные возможности ванильного JavaScript в связке с Telegram API для реализации задач любой сложности — от лендингов и корпоративных сайтов до интернет-магазинов.</p>
+                    <span class="meta-tag" data-i18n="about.eyebrow">ПОРТРЕТ РАЗРАБОТЧИКА</span>
+                    <h2 class="section-title" data-i18n="about.title">Создаю проекты, которые работают на вас</h2>
+                    <p class="about-bio-p" data-i18n="about.text">Я занимаюсь веб-разработкой и созданием интерактивных сайтов. В каждый проект закладываю кастомную анимацию, плавные переходы и продуманную логику. Использую современные возможности ванильного JavaScript в связке с Telegram API для реализации задач любой сложности — от лендингов и корпоративных сайтов до интернет-магазинов.</p>
                 </div>
             </div>
         </div>
@@ -124,82 +194,88 @@
     <section id="portfolio" class="portfolio-section scroll-reveal">
         <div class="section-container">
             <div class="portfolio-teaser text-center">
-                <span class="meta-tag">КЕЙСЫ</span>
-                <h2 class="section-title">Мои последние работы</h2>
-                <p class="portfolio-teaser-text">Лендинги, корпоративные сайты и интернет-магазины — каждый проект с уникальным визуалом и продуманной анимацией.</p>
-                <div class="portfolio-preview-strip">
+                <span class="meta-tag" data-i18n="portfolio.eyebrow">КЕЙСЫ</span>
+                <h2 class="section-title" data-i18n="portfolio.title">Мои последние работы</h2>
+                <p class="portfolio-teaser-text" data-i18n="portfolio.text">Лендинги, корпоративные сайты и интернет-магазины — каждый проект с уникальным визуалом и продуманной анимацией.</p>
+                <div class="portfolio-preview-strip" aria-hidden="true">
                     <div class="preview-chip visual-forest"></div>
                     <div class="preview-chip visual-random"></div>
                     <div class="preview-chip visual-office"></div>
                     <div class="preview-chip visual-store"></div>
                 </div>
-                <button id="open-portfolio-modal" class="action-btn btn-prime">Примеры работ <span>→</span></button>
+                <button id="open-portfolio-modal" class="action-btn btn-prime">
+                    <span data-i18n="portfolio.openBtn">Примеры работ</span> <span aria-hidden="true">→</span>
+                </button>
             </div>
         </div>
     </section>
 
-    <div id="portfolio-modal" class="portfolio-modal hidden">
+    </main>
+
+    <div id="portfolio-modal" class="portfolio-modal hidden" role="dialog" aria-modal="true" aria-labelledby="portfolio-modal-title">
         <div class="portfolio-modal-backdrop"></div>
         <div class="portfolio-modal-panel">
             <div class="portfolio-modal-head">
-                <h2 class="section-title">Мои последние работы</h2>
-                <button id="close-portfolio-modal" class="modal-close-btn" aria-label="Закрыть">✕</button>
+                <h2 class="section-title" id="portfolio-modal-title" data-i18n="portfolio.modalTitle">Мои последние работы</h2>
+                <button id="close-portfolio-modal" class="modal-close-btn" aria-label="Закрыть" data-i18n-aria="portfolio.closeAria">✕</button>
             </div>
 
-            <div class="filter-controls">
-                <button class="filter-btn active" data-filter="all">Все проекты</button>
-                <button class="filter-btn" data-filter="web">Веб-сайты</button>
-                <button class="filter-btn" data-filter="store">Магазины</button>
+            <div class="filter-controls" role="tablist">
+                <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true" data-i18n="portfolio.filter.all">Все проекты</button>
+                <button class="filter-btn" data-filter="web" role="tab" aria-selected="false" data-i18n="portfolio.filter.web">Веб-сайты</button>
+                <button class="filter-btn" data-filter="store" role="tab" aria-selected="false" data-i18n="portfolio.filter.store">Магазины</button>
             </div>
 
             <div class="portfolio-showcase-grid">
                 <div class="portfolio-item-card scroll-reveal" data-category="web">
                     <div class="card-visual visual-forest">
-                        <span class="tech-tag">UI / Conservation</span>
+                        <span class="tech-tag" data-i18n="project.forest.category">UI / Экология</span>
                     </div>
                     <div class="card-body">
-                        <h3 class="card-project-title">Save Forest</h3>
-                        <p class="card-project-text">Интерактивный сайт, посвященный защите лесов и охране дикой природы. Каталог флоры и фауны, привлекает внимание к экологии через плавный визуал.</p>
-                        <a href="https://dixize.github.io/foressttt/" target="_blank" rel="noopener" class="card-hyperlink">Смотреть проект <span>→</span></a>
+                        <h3 class="card-project-title" data-i18n="project.forest.title">Save Forest</h3>
+                        <p class="card-project-text" data-i18n="project.forest.text">Интерактивный сайт, посвященный защите лесов и охране дикой природы. Каталог флоры и фауны, привлекает внимание к экологии через плавный визуал.</p>
+                        <a href="https://dixize.github.io/foressttt/" target="_blank" rel="noopener" class="card-hyperlink"><span data-i18n="portfolio.viewProject">Смотреть проект</span> <span aria-hidden="true">→</span></a>
                     </div>
                 </div>
 
                 <div class="portfolio-item-card scroll-reveal" data-category="web">
                     <div class="card-visual visual-random">
-                        <span class="tech-tag">HTML / CSS / JS</span>
+                        <span class="tech-tag" data-i18n="project.neon.category">HTML / CSS / JS</span>
                     </div>
                     <div class="card-body">
-                        <h3 class="card-project-title">Neon Gen</h3>
-                        <p class="card-project-text">Футуристичный генератор случайных чисел и списков с неоновым интерфейсом. Гибкая настройка диапазона и мгновенная генерация результата.</p>
-                        <a href="https://dixize.github.io/randomizer/" target="_blank" rel="noopener" class="card-hyperlink">Смотреть проект <span>→</span></a>
+                        <h3 class="card-project-title" data-i18n="project.neon.title">Neon Gen</h3>
+                        <p class="card-project-text" data-i18n="project.neon.text">Футуристичный генератор случайных чисел и списков с неоновым интерфейсом. Гибкая настройка диапазона и мгновенная генерация результата.</p>
+                        <a href="https://dixize.github.io/randomizer/" target="_blank" rel="noopener" class="card-hyperlink"><span data-i18n="portfolio.viewProject">Смотреть проект</span> <span aria-hidden="true">→</span></a>
                     </div>
                 </div>
 
                 <div class="portfolio-item-card scroll-reveal" data-category="web">
                     <div class="card-visual visual-office">
-                        <span class="tech-tag">Corporate / Business</span>
+                        <span class="tech-tag" data-i18n="project.office.category">Corporate / Business</span>
                     </div>
                     <div class="card-body">
-                        <h3 class="card-project-title">Проектный офис</h3>
-                        <p class="card-project-text">Корпоративный сайт-презентация для промышленной экосистемы: автоматизация, видеоаналитика и промышленный IoT в едином стильном интерфейсе.</p>
-                        <a href="https://dixize.github.io/asdwqe/" target="_blank" rel="noopener" class="card-hyperlink">Смотреть проект <span>→</span></a>
+                        <h3 class="card-project-title" data-i18n="project.office.title">Проектный офис</h3>
+                        <p class="card-project-text" data-i18n="project.office.text">Корпоративный сайт-презентация для промышленной экосистемы: автоматизация, видеоаналитика и промышленный IoT в едином стильном интерфейсе.</p>
+                        <a href="https://dixize.github.io/asdwqe/" target="_blank" rel="noopener" class="card-hyperlink"><span data-i18n="portfolio.viewProject">Смотреть проект</span> <span aria-hidden="true">→</span></a>
                     </div>
                 </div>
 
                 <div class="portfolio-item-card scroll-reveal" data-category="store">
                     <div class="card-visual visual-store">
-                        <span class="tech-tag">E-commerce</span>
+                        <span class="tech-tag" data-i18n="project.store.category">E-commerce</span>
                     </div>
                     <div class="card-body">
-                        <h3 class="card-project-title">Ultra Tech</h3>
-                        <p class="card-project-text">Интернет-магазин премиальной техники с каталогом товаров, корзиной и продуманным пользовательским путём от выбора до покупки.</p>
-                        <a href="https://dixize.github.io/dixize_store_web/" target="_blank" rel="noopener" class="card-hyperlink">Смотреть проект <span>→</span></a>
+                        <h3 class="card-project-title" data-i18n="project.store.title">Ultra Tech</h3>
+                        <p class="card-project-text" data-i18n="project.store.text">Интернет-магазин премиальной техники с каталогом товаров, корзиной и продуманным пользовательским путём от выбора до покупки.</p>
+                        <a href="https://dixize.github.io/dixize_store_web/" target="_blank" rel="noopener" class="card-hyperlink"><span data-i18n="portfolio.viewProject">Смотреть проект</span> <span aria-hidden="true">→</span></a>
                     </div>
                 </div>
             </div>
 
             <div class="portfolio-more-wrap">
-                <button id="portfolio-show-all" class="action-btn btn-glass hidden">Показать все проекты <span class="show-all-count"></span></button>
+                <button id="portfolio-show-all" class="action-btn btn-glass hidden">
+                    <span data-i18n="portfolio.showAll">Показать все проекты</span> <span class="show-all-count"></span>
+                </button>
             </div>
         </div>
     </div>
@@ -207,111 +283,158 @@
     <section id="contact" class="contact-section scroll-reveal">
         <div class="section-container">
             <div class="form-container-box">
-                
-                <form id="portfolio-interactive-form">
+
+                <form id="portfolio-interactive-form" novalidate>
                     <div class="form-head text-center">
-                        <span class="meta-tag">ИНТЕРАКТИВНЫЙ ОПТИМИЗАТОР</span>
-                        <h2 class="section-title">Сконфигурируйте ваше ТЗ</h2>
-                        <p class="form-sub">Выберите тип проекта, укажите опции и мгновенно отправьте спецификацию разработчику.</p>
+                        <span class="meta-tag" data-i18n="config.eyebrow">ИНТЕРАКТИВНЫЙ ОПТИМИЗАТОР</span>
+                        <h2 class="section-title" data-i18n="config.title">Сконфигурируйте ваше ТЗ</h2>
+                        <p class="form-sub" data-i18n="config.subtitle">Выберите тип проекта, укажите опции и мгновенно отправьте спецификацию разработчику.</p>
                     </div>
 
-                    <div class="config-group scroll-reveal">
-                        <label class="group-label">1. Тип архитектуры проекта</label>
+                    <ol class="wizard-progress" aria-hidden="true">
+                        <li class="wizard-progress-item active" data-step-indicator="1">
+                            <span class="wizard-progress-num">01</span>
+                            <span class="wizard-progress-label" data-i18n="config.step1.label">Тип проекта</span>
+                        </li>
+                        <li class="wizard-progress-item" data-step-indicator="2">
+                            <span class="wizard-progress-num">02</span>
+                            <span class="wizard-progress-label" data-i18n="config.step2.label">Модули</span>
+                        </li>
+                        <li class="wizard-progress-item" data-step-indicator="3">
+                            <span class="wizard-progress-num">03</span>
+                            <span class="wizard-progress-label" data-i18n="config.step3.label">Контакты</span>
+                        </li>
+                    </ol>
+
+                    <div class="config-step" data-step="1">
                         <div class="config-selector-grid">
-                            <div class="selector-tile active" data-type="landing">
-                                <h4>Лендинг / Промо</h4>
-                                <p>Одностраничный сайт для яркой презентации продукта.</p>
-                                <a href="https://dixize.github.io/foressttt/" target="_blank" rel="noopener" class="tile-example-link">Пример структуры</a>
+                            <div class="selector-tile active" data-type="landing" tabindex="0" role="button">
+                                <h4 data-i18n="type.landing.title">Лендинг / Промо</h4>
+                                <p data-i18n="type.landing.text">Одностраничный сайт для яркой презентации продукта.</p>
+                                <a href="https://dixize.github.io/foressttt/" target="_blank" rel="noopener" class="tile-example-link" data-i18n="type.landing.example">Пример структуры</a>
                             </div>
-                            <div class="selector-tile" data-type="service">
-                                <h4>Сайт услуг</h4>
-                                <p>Многостраничная платформа для бизнеса и услуг.</p>
-                                <a href="https://dixize.github.io/asdwqe/" target="_blank" rel="noopener" class="tile-example-link">Пример структуры</a>
+                            <div class="selector-tile" data-type="service" tabindex="0" role="button">
+                                <h4 data-i18n="type.service.title">Сайт услуг</h4>
+                                <p data-i18n="type.service.text">Многостраничная платформа для бизнеса и услуг.</p>
+                                <a href="https://dixize.github.io/asdwqe/" target="_blank" rel="noopener" class="tile-example-link" data-i18n="type.service.example">Пример структуры</a>
                             </div>
-                            <div class="selector-tile" data-type="store">
-                                <h4>Интернет-магазин</h4>
-                                <p>Сложная система с корзиной и встроенными модулями.</p>
-                                <a href="https://dixize.github.io/dixize_store_web/" target="_blank" rel="noopener" class="tile-example-link">Пример структуры</a>
+                            <div class="selector-tile" data-type="store" tabindex="0" role="button">
+                                <h4 data-i18n="type.store.title">Интернет-магазин</h4>
+                                <p data-i18n="type.store.text">Сложная система с корзиной и встроенными модулями.</p>
+                                <a href="https://dixize.github.io/dixize_store_web/" target="_blank" rel="noopener" class="tile-example-link" data-i18n="type.store.example">Пример структуры</a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="config-group scroll-reveal">
-                        <label class="group-label">2. Дополнительные модули</label>
+                    <div class="config-step" data-step="2" hidden>
+                        <label class="group-label" data-i18n="addons.groupLabel">Дополнительные модули</label>
                         <div class="addons-flex">
                             <label class="addon-checkbox-label">
                                 <input type="checkbox" id="addon-tg">
                                 <span class="custom-checkbox"></span>
                                 <div>
-                                    <strong>Интеграция Telegram API</strong>
-                                    <p id="tg-addon-price-text" style="font-size: 11px; color: var(--text-muted); margin: 0;">+200 ₽</p>
+                                    <strong data-i18n="addons.tg.label">Интеграция Telegram API</strong>
+                                    <p id="tg-addon-price-text" class="addon-price-text">+500 ₽</p>
                                 </div>
                             </label>
                             <label class="addon-checkbox-label">
                                 <input type="checkbox" id="addon-anim">
                                 <span class="custom-checkbox"></span>
                                 <div>
-                                    <strong>Премиальные UI-анимации</strong>
-                                    <p id="anim-addon-price-text" style="font-size: 11px; color: var(--text-muted); margin: 0;">+150 ₽</p>
+                                    <strong data-i18n="addons.anim.label">Премиальные UI-анимации</strong>
+                                    <p id="anim-addon-price-text" class="addon-price-text">+0 ₽</p>
                                 </div>
                             </label>
                         </div>
+
+                        <div class="price-counter-panel">
+                            <span class="counter-label" data-i18n="price.label">Предварительный расчет стоимости:</span>
+                            <div class="counter-value"><span id="live-price-display">2000</span> ₽</div>
+                        </div>
                     </div>
 
-                    <div class="config-group scroll-reveal">
-                        <label class="group-label">3. Контактные данные и детали</label>
+                    <div class="config-step" data-step="3" hidden>
+                        <label class="group-label" data-i18n="form.groupLabel">Контактные данные и детали</label>
                         <div class="form-row-split">
                             <div class="input-wrapper">
-                                <label for="client_name">Ваше имя *</label>
-                                <input type="text" id="client_name" placeholder="Иван Иванов">
+                                <label for="client_name" data-i18n="form.name.label">Ваше имя *</label>
+                                <input type="text" id="client_name" data-i18n-placeholder="form.name.placeholder" placeholder="Иван Иванов" autocomplete="name">
                                 <span class="custom-error-label"></span>
                             </div>
                             <div class="input-wrapper">
-                                <label for="client_contact">Способ связи (Telegram / Телефон) *</label>
-                                <input type="text" id="client_contact" placeholder="@username или +7...">
+                                <label for="client_contact" data-i18n="form.contact.label">Способ связи (Telegram / Телефон) *</label>
+                                <input type="text" id="client_contact" data-i18n-placeholder="form.contact.placeholder" placeholder="@username или +7..." autocomplete="tel">
                                 <span class="custom-error-label"></span>
                             </div>
                         </div>
                         <div class="input-wrapper">
-                            <label for="client_task">Дополнительные пожелания к ТЗ (необязательно)</label>
-                            <textarea id="client_task" rows="4" placeholder="Например: темная тема, интеграция интерактивной карты, галерея работ..."></textarea>
+                            <label for="client_task" data-i18n="form.comment.label">Дополнительные пожелания к ТЗ (необязательно)</label>
+                            <textarea id="client_task" rows="4" data-i18n-placeholder="form.comment.placeholder" placeholder="Например: темная тема, интеграция интерактивной карты, галерея работ..."></textarea>
+                        </div>
+
+                        <div class="price-summary-panel">
+                            <div class="price-summary-row">
+                                <span data-i18n="price.summaryType">Тип проекта</span>
+                                <strong id="summary-type-value">—</strong>
+                            </div>
+                            <div class="price-summary-row">
+                                <span data-i18n="price.summaryAddons">Модули</span>
+                                <strong id="summary-addons-value">—</strong>
+                            </div>
+                            <div class="price-summary-row price-summary-total">
+                                <span data-i18n="price.label">Предварительный расчет стоимости:</span>
+                                <strong><span id="live-price-display-summary">2000</span> ₽</strong>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="price-counter-panel">
-                        <span class="counter-label">Предварительный расчет стоимости:</span>
-                        <div class="counter-value"><span id="live-price-display">750</span> ₽</div>
+                    <div class="wizard-nav">
+                        <button type="button" class="action-btn btn-glass wizard-btn-back hidden" data-i18n="config.back">Назад</button>
+                        <button type="button" class="action-btn btn-prime wizard-btn-next" data-i18n="config.next">Далее</button>
+                        <button type="submit" id="form-submit-trigger" class="action-btn btn-prime btn-wide hidden">
+                            <span class="btn-text" data-i18n="submit.button">Утвердить и отправить в Telegram</span>
+                            <div class="spinner hidden"></div>
+                        </button>
                     </div>
-
-                    <button type="submit" id="form-submit-trigger" class="action-btn btn-prime btn-wide">
-                        <span class="btn-text">Утвердить и отправить спецификацию в Telegram</span>
-                        <div class="spinner hidden"></div>
-                    </button>
                 </form>
 
                 <div id="form-success-state" class="success-state-ui hidden">
                     <div class="success-radial-icon">✓</div>
-                    <h2 class="section-title">ТЗ успешно сформировано!</h2>
-                    <p class="form-sub" style="margin-top: 12px; font-size: 16px;">Спецификация отправлена разработчику в Telegram. Я свяжусь с вами в ближайшее время для подтверждения деталей.</p>
+                    <h2 class="section-title" data-i18n="success.title">ТЗ успешно сформировано!</h2>
+                    <p class="form-sub success-text" data-i18n="success.text">Спецификация отправлена разработчику в Telegram. Я свяжусь с вами в ближайшее время для подтверждения деталей.</p>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <button id="back-to-top" class="back-to-top" aria-label="Наверх">↑</button>
+    <button id="back-to-top" class="back-to-top" aria-label="Наверх" data-i18n-aria="backToTop.aria">↑</button>
 
     <footer class="site-footer">
         <div class="nav-container footer-wrap">
-            <p>© 2026 dixize.store. Все права защищены.</p>
-            <div class="footer-socials">
-                <a href="https://github.com/Dixize" target="_blank" rel="noopener" class="social-link">GitHub</a>
-                <a href="#" class="social-link">Telegram</a>
-                <a href="#" class="social-link">ВКонтакте</a>
+            <div class="footer-brand">
+                <a href="#" class="brand-logo">dixize<span>.store</span></a>
+                <p class="footer-text" data-i18n="footer.text">Разработка сайтов и веб-интерфейсов для бизнеса и личных проектов.</p>
+                <span class="footer-status"><i class="tag-dot tag-dot-live"></i><span data-i18n="footer.status">Открыт к новым проектам</span></span>
             </div>
+            <div class="footer-nav">
+                <a href="#advantages" data-i18n="nav.advantages">Преимущества</a>
+                <a href="#about" data-i18n="nav.about">Обо мне</a>
+                <a href="#portfolio" data-i18n="nav.portfolio">Портфолио</a>
+                <a href="#contact" data-i18n="nav.contact">Заказать</a>
+            </div>
+            <div class="footer-socials">
+                <a href="https://github.com/Dixize" target="_blank" rel="noopener" class="social-link" data-i18n="footer.github">GitHub</a>
+                <a href="#" class="social-link" data-i18n="footer.telegram">Telegram</a>
+                <a href="#" class="social-link" data-i18n="footer.vk">ВКонтакте</a>
+            </div>
+        </div>
+        <div class="nav-container">
+            <p class="footer-copyright" data-i18n="footer.copyright">© 2026 dixize.store. Все права защищены.</p>
         </div>
     </footer>
 
+    <script src="translations.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
